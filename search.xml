@@ -4,12 +4,18 @@
   
     
     <entry>
-      <title>如何建立博客</title>
-      <link href="/2023/03/26/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
-      <url>/2023/03/26/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/</url>
+      <title>Hello World</title>
+      <link href="/2023/03/26/hello-world/"/>
+      <url>/2023/03/26/hello-world/</url>
       
-        <content type="html"><![CDATA[<h2 id="如何建立博客"><a href="#如何建立博客" class="headerlink" title="如何建立博客"></a>如何建立博客</h2><h3 id="博客建立的几个前置条件"><a href="#博客建立的几个前置条件" class="headerlink" title="博客建立的几个前置条件"></a>博客建立的几个前置条件</h3><ol><li><p>blog的网站框架（可以自己搭建或使用网上现成的框架）</p></li><li><p>部署平台<br>  平台可选择以下部分</p></li><li><p>github（无需购买域名)</p></li><li><p>云服务 </p></li><li><p>本地搭建服务器 </p></li><li><p>域名(可选)</p></li><li><p>网站托管(可选)</p></li><li><p>github page </p></li><li><p>vercel(比github page快不少)</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
+      
+      <categories>
+          
+          <category> 测试 </category>
+          
+      </categories>
       
       
     </entry>
@@ -17,12 +23,18 @@
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2023/03/26/hello-world/"/>
-      <url>/2023/03/26/hello-world/</url>
+      <title>如何建立博客</title>
+      <link href="/2023/03/26/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2023/03/26/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="如何建立博客"><a href="#如何建立博客" class="headerlink" title="如何建立博客"></a>如何建立博客</h2><h3 id="博客建立的几个前置条件"><a href="#博客建立的几个前置条件" class="headerlink" title="博客建立的几个前置条件"></a>博客建立的几个前置条件</h3><ol><li><p>blog的网站框架（可以自己搭建或使用网上现成的框架）</p></li><li><p>部署平台<br>  平台可选择以下部分</p></li><li><p>github（无需购买域名)</p></li><li><p>云服务 </p></li><li><p>本地搭建服务器 </p></li><li><p>域名(可选)</p></li><li><p>网站托管(可选)</p></li><li><p>github page </p></li><li><p>vercel(比github page快不少)</p></li></ol>]]></content>
       
+      
+      <categories>
+          
+          <category> 学习技能 </category>
+          
+      </categories>
       
       
     </entry>
