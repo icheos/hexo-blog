@@ -8,7 +8,7 @@
       <link href="/2023/03/27/test-draft/"/>
       <url>/2023/03/27/test-draft/</url>
       
-        <content type="html"><![CDATA[<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2>]]></content>
+        <content type="html"><![CDATA[<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><div class="row">    <embed src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/pdf/小作文讲义.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
       
       
       <categories>
@@ -54,7 +54,7 @@
       <link href="/2023/03/26/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
       <url>/2023/03/26/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/</url>
       
-        <content type="html"><![CDATA[<h2 id="如何建立博客"><a href="#如何建立博客" class="headerlink" title="如何建立博客"></a>如何建立博客</h2><h3 id="博客建立的几个前置条件"><a href="#博客建立的几个前置条件" class="headerlink" title="博客建立的几个前置条件"></a>博客建立的几个前置条件</h3><ol><li><p>blog的网站框架（可以自己搭建或使用网上现成的框架）</p></li><li><p>部署平台<br>  平台可选择以下部分</p></li></ol><ul><li>github（无需购买域名)</li><li>云服务 </li><li>本地搭建服务器</li></ul><ol start="3"><li><p>域名(可选)</p></li><li><p>网站托管(可选)</p></li></ol><ul><li>github page </li><li>vercel(比github page快不少)</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="如何建立博客"><a href="#如何建立博客" class="headerlink" title="如何建立博客"></a>如何建立博客</h2><h3 id="博客建立的几个前置条件"><a href="#博客建立的几个前置条件" class="headerlink" title="博客建立的几个前置条件"></a>博客建立的几个前置条件</h3><ol><li><p>blog的网站框架（可以自己搭建或使用网上现成的框架）</p></li><li><p>部署平台<br>平台可选择以下部分</p><ul><li>github（无需购买域名)</li><li>云服务 </li><li>本地搭建服务器 </li></ul></li><li><p>域名(可选)</p></li></ol><ol><li><p>网站托管(可选)</p><ul><li>github page </li><li>vercel(比github page快不少)</li></ul></li></ol>]]></content>
       
       
       <categories>
