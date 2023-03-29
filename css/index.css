@@ -3290,7 +3290,7 @@ h1.page-title + .tag-cloud-list {
   --card-friend-descr-color: #797979;
 }
 #aside-content .card-widget.card-friend-link {
-  padding: 20px 0px;
+  padding: 20px 20px;
 }
 .card-widget.card-friend-link .card-friend-link-container {
   max-height: 460px;
