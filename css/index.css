@@ -4558,7 +4558,7 @@ h1.page-title + .tag-cloud-list {
   transition: box-shadow 0.3s ease-in-out;
   overflow: hidden;
   border-radius: 12px !important;
-  background: rgba(240,240,240,0.6);
+  background: rgba(240,240,250,0.5);
 }
 #post .post-copyright:before {
   background: var(--heo-post-blockquote-bg);

@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>接口与继承</title>
+      <link href="/2023/03/31/%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%BB%A7%E6%89%BF/"/>
+      <url>/2023/03/31/%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%BB%A7%E6%89%BF/</url>
+      
+        <content type="html"><![CDATA[<h2 id="接口与继承"><a href="#接口与继承" class="headerlink" title="接口与继承"></a>接口与继承</h2><p>本章学习链接：<a href="https://joshhug.gitbooks.io/hug61b/content/chap4/chap41.html">https://joshhug.gitbooks.io/hug61b/content/chap4/chap41.html</a></p><p>本节内容部分节选自CS61B中比较重要的概念：<code>接口, 重写, 继承, 静态类型与动态类型, 重载与重写的关系</code></p><h3 id="静态类型与动态类型"><a href="#静态类型与动态类型" class="headerlink" title="静态类型与动态类型"></a>静态类型与动态类型</h3><p>静态类型：指变量声明时所指定的类型，这个类型是不能改的<br>动态类型： 在声明对象时给定的对象类型, 一般只有父类才有获取子类对象类型的能力</p><p>假设Animal是Cat的父类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>(); <span class="comment">//cat的动态类型和静态类型都为Cat</span></span><br><span class="line"><span class="type">Animal</span> <span class="variable">anim</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>(); <span class="comment">//Animal的静态类型是Animal,动态类型是Cat</span></span><br></pre></td></tr></table></figure><br>那么静态类型和动态类型有什么用呢，来看以下代码</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">peek</span><span class="params">(List list)</span> &#123;</span><br><span class="line">    System.out.println(list.getLast());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">peek</span><span class="params">(SLList list)</span> &#123;</span><br><span class="line">    System.out.println(list.getFirst());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">SLList</span> <span class="variable">SP</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SLList</span>();</span><br><span class="line"><span class="type">List</span> <span class="variable">LP</span> <span class="operator">=</span> SP;</span><br><span class="line">SP.addLast(<span class="string">&quot;elk&quot;</span>);</span><br><span class="line">SP.addLast(<span class="string">&quot;are&quot;</span>);</span><br><span class="line">SP.addLast(<span class="string">&quot;cool&quot;</span>);</span><br><span class="line">peek(SP); <span class="comment">//elk</span></span><br><span class="line">peek(LP); <span class="comment">//cool</span></span><br></pre></td></tr></table></figure><p>在上面代码中我们重载了peek方法，也就是说，LP并没有以SLList调用，依然使用List类型对方法进行调用,这告诉我们重载和重写是不一样的</p><h3 id="重载与重写"><a href="#重载与重写" class="headerlink" title="重载与重写"></a>重载与重写</h3><p>重载与重写有类似的地方，但两者之间存在区别</p><ul><li><p>如果父类动态类型为子类，会使用子类重写方法，但不会使用子类重载方法</p></li><li><p>子类能重载父类的方法</p></li><li><p>在Java中重写最好添加@override,告诉别人这是在父类基础上重写的方法</p></li></ul><p>值得注意的是，构造函数既不能重载父类方法，也不能重写父类方法，只能创建自己的构造方法。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>接口告诉子类能做什么（how）,子类则实现接口能做什么(what)</p><p>在继承时，接口与子类的关系更接近<code>is a</code>，而不是<code>has a</code>，我们可以说猫是动物， 但不能说猫有爪子</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CS61B </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 面向对象 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>test draft</title>
       <link href="/2023/03/27/test-draft/"/>
       <url>/2023/03/27/test-draft/</url>
