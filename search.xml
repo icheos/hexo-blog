@@ -4,11 +4,65 @@
   
     
     <entry>
-      <title>接口与继承</title>
-      <link href="/2023/03/31/%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%BB%A7%E6%89%BF/"/>
-      <url>/2023/03/31/%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%BB%A7%E6%89%BF/</url>
+      <title>MCU平台介绍</title>
+      <link href="/2024/09/11/embeded/MCU%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D/"/>
+      <url>/2024/09/11/embeded/MCU%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D/</url>
       
-        <content type="html"><![CDATA[<h2 id="接口与继承"><a href="#接口与继承" class="headerlink" title="接口与继承"></a>接口与继承</h2><p>本章学习链接：<a href="https://joshhug.gitbooks.io/hug61b/content/chap4/chap41.html">https://joshhug.gitbooks.io/hug61b/content/chap4/chap41.html</a></p><p>本节内容部分节选自CS61B中比较重要的概念：<code>接口, 重写, 继承, 静态类型与动态类型, 重载与重写的关系</code></p><h3 id="静态类型与动态类型"><a href="#静态类型与动态类型" class="headerlink" title="静态类型与动态类型"></a>静态类型与动态类型</h3><p>静态类型：指变量声明时所指定的类型，这个类型是不能改的<br>动态类型： 在声明对象时给定的对象类型, 一般只有父类才有获取子类对象类型的能力</p><p>假设Animal是Cat的父类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>(); <span class="comment">//cat的动态类型和静态类型都为Cat</span></span><br><span class="line"><span class="type">Animal</span> <span class="variable">anim</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>(); <span class="comment">//Animal的静态类型是Animal,动态类型是Cat</span></span><br></pre></td></tr></table></figure><br>那么静态类型和动态类型有什么用呢，来看以下代码</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">peek</span><span class="params">(List list)</span> &#123;</span><br><span class="line">    System.out.println(list.getLast());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">peek</span><span class="params">(SLList list)</span> &#123;</span><br><span class="line">    System.out.println(list.getFirst());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">SLList</span> <span class="variable">SP</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SLList</span>();</span><br><span class="line"><span class="type">List</span> <span class="variable">LP</span> <span class="operator">=</span> SP;</span><br><span class="line">SP.addLast(<span class="string">&quot;elk&quot;</span>);</span><br><span class="line">SP.addLast(<span class="string">&quot;are&quot;</span>);</span><br><span class="line">SP.addLast(<span class="string">&quot;cool&quot;</span>);</span><br><span class="line">peek(SP); <span class="comment">//elk</span></span><br><span class="line">peek(LP); <span class="comment">//cool</span></span><br></pre></td></tr></table></figure><p>在上面代码中我们重载了peek方法，也就是说，LP并没有以SLList调用，依然使用List类型对方法进行调用,这告诉我们重载和重写是不一样的</p><h3 id="重载与重写"><a href="#重载与重写" class="headerlink" title="重载与重写"></a>重载与重写</h3><p>重载与重写有类似的地方，但两者之间存在区别</p><ul><li><p>如果父类动态类型为子类，会使用子类重写方法，但不会使用子类重载方法</p></li><li><p>子类能重载父类的方法</p></li><li><p>在Java中重写最好添加@override,告诉别人这是在父类基础上重写的方法</p></li></ul><p>值得注意的是，构造函数既不能重载父类方法，也不能重写父类方法，只能创建自己的构造方法。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>接口告诉子类能做什么（how）,子类则实现接口能做什么(what)</p><p>在继承时，接口与子类的关系更接近<code>is a</code>，而不是<code>has a</code>，我们可以说猫是动物， 但不能说猫有爪子</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="MCU"><a href="#MCU" class="headerlink" title="MCU"></a>MCU</h1><p>微控制器是一个大类，当中包含了单片机，DSP,FPGA,ARM这类处理器</p><p>视频原链接:<a href="https://www.bilibili.com/video/BV1zT4y1o7Ro">https://www.bilibili.com/video/BV1zT4y1o7Ro</a></p><h2 id="单片机"><a href="#单片机" class="headerlink" title="单片机"></a>单片机</h2><ul><li>结构简单</li><li>开发时间短</li><li><p>有很多现成接口</p></li><li><p>速度低</p></li><li>接口不够丰富，没有高速通用接口</li></ul><p>单片机适合控制简单的外设如电机转动，屏幕显示，但由于速度慢，不适合处理算法,高速数据处理</p><h2 id="DSP"><a href="#DSP" class="headerlink" title="DSP"></a>DSP</h2><p>DSP叫做数字信号处理器,DSP常用于做数字滤波器</p><ul><li>高吞吐量</li><li>高处理速度<ul><li>主频高</li><li>硬件卷积计算</li></ul></li></ul><p>DSP适合处理单路串行数字信号，适合图像处理，接口没单片机高不适合控制</p><h2 id="arm"><a href="#arm" class="headerlink" title="arm"></a>arm</h2><ul><li>能装OS</li><li>接口丰富</li><li><p>芯片配置灵活，可以用于CPU或单片机以及其他用途处理器</p></li><li><p>软件开发门槛高</p></li><li>器件更复杂</li></ul><p>arm几乎什么都能做，但对技术的要求也更高</p><h2 id="FPGA"><a href="#FPGA" class="headerlink" title="FPGA"></a>FPGA</h2><ul><li>集成元件库,可以实现上面的各类硬件</li><li><p>硬件描述语言(HDL)</p></li><li><p>价格高</p></li><li>接口不丰富</li><li>开发门槛高，周期长</li><li>外围器件杂，PCB设计复杂</li><li>体积大，功耗高</li></ul><p>适合并行信号高速处理，芯片设计前期验证，只适合高端应用，造价高</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>单片机适合家电，简单的机械控制</p><p>DSP适合视频直播</p><p>ARM万金油</p><p>FPGA用于芯片应用，高端应用</p><h3 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h3><p>单片机倾向于精简ARM,比如esp32,stm32,过渡到以arm为主的芯片上</p><p>DSP过渡到加了DSP硬件的ARM</p><p>ARM添加各种专业电路的ARM(SOC)</p><p>FPGA可编程电路的ARM</p><h2 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h2><p>入门学习stm32或esp32</p><p>进阶学习stm32跑rtos</p><p>后续学习ARM处理器相关的开发，比如linux</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 初见嵌入式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 嵌入式开发 </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>嵌入式需要掌握的技能</title>
+      <link href="/2024/09/11/embeded/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%8A%80%E8%83%BD/"/>
+      <url>/2024/09/11/embeded/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%8A%80%E8%83%BD/</url>
+      
+        <content type="html"><![CDATA[<h1 id="嵌入式需要掌握的技能"><a href="#嵌入式需要掌握的技能" class="headerlink" title="嵌入式需要掌握的技能"></a>嵌入式需要掌握的技能</h1><p><a href="https://swedishembedded.com/product/skills">原文链接</a></p><p>原文写的非常详细，本文提供简要信息</p><h2 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h2><ul><li>嵌入式系统设计</li><li>C，C++语言</li><li>微控制器编程</li><li>RTOS</li><li>电子电路设计</li><li>PCB设计和布局</li><li>FPGA开发</li><li>信号处理</li><li>通信协议</li><li>控制系统设计</li><li>传感器和执行器</li><li>调试与测试</li><li>软件开发方法</li><li>项目管理</li><li>网络安全</li><li>机器学习和AI</li></ul><h2 id="嵌入式系统设计"><a href="#嵌入式系统设计" class="headerlink" title="嵌入式系统设计"></a>嵌入式系统设计</h2><ul><li>获取需求</li><li>选择硬件</li><li>软件开发</li><li>系统优化</li><li>扩展性和模块化</li></ul><p>嵌入式系统更多需要使用已有的开源，现成的产品进行学习</p><h2 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h2><p>为了深入学习嵌入式开发，需要学习编程语言</p><ul><li>C, C++(不常使用), 汇编(需要了解), C# 和 python(有用), rust(流行)</li><li>代码优化</li><li>硬件交互</li><li>平台库</li><li>调试技术</li></ul><h2 id="微控制器编程"><a href="#微控制器编程" class="headerlink" title="微控制器编程"></a>微控制器编程</h2><p>了解编程语言后就是对微控制器进行编程</p><ul><li>架构</li><li>外设</li><li>中断</li><li>低阶编程</li><li>能耗管理</li></ul><h2 id="RTOS"><a href="#RTOS" class="headerlink" title="RTOS"></a>RTOS</h2><ul><li>任务调度</li><li>任务间通信</li><li>资源管理</li><li>RTOS平台</li><li>配置和CI</li><li>RTOS调试</li></ul><h2 id="电子和电路设计"><a href="#电子和电路设计" class="headerlink" title="电子和电路设计"></a>电子和电路设计</h2><ul><li>模拟和数字电路</li><li>电路分析</li><li>组件选择</li><li>电源设计</li><li>信号集成</li><li>原型与测试</li></ul><h2 id="PCB布局"><a href="#PCB布局" class="headerlink" title="PCB布局"></a>PCB布局</h2><ul><li>设计工具</li><li>组件布局</li><li>路由(使用尽可能短的路径连接组件)</li><li>多层设计</li><li>生产设计(设计需要简单，造价低廉)</li><li>测试 </li></ul><h2 id="FPGA开发"><a href="#FPGA开发" class="headerlink" title="FPGA开发"></a>FPGA开发</h2><ul><li>可编程数字逻辑</li><li>CPU原型</li><li>信号捕捉和执行</li></ul><h2 id="信号处理"><a href="#信号处理" class="headerlink" title="信号处理"></a>信号处理</h2><ul><li>时域分析</li><li>频率分析</li><li>数字滤波</li><li>模拟滤波</li><li>自适应信号处理</li></ul><h2 id="通信协议"><a href="#通信协议" class="headerlink" title="通信协议"></a>通信协议</h2><ul><li>UART,SPI,I2C用于PCB的协议</li><li>TCP/IP,UDP, EtherCAT网络协议</li><li>工业通信CAN, Modbus, Profibus</li><li>无线通信协议</li><li>IoT通信协议</li><li>通信安全</li></ul><h2 id="控制系统设置"><a href="#控制系统设置" class="headerlink" title="控制系统设置"></a>控制系统设置</h2><ul><li>线性控制理论</li><li>非线性控制理论</li><li>健全自适应控制</li><li>最优控制</li><li>模型预测控制</li><li>网络控制系统</li></ul><h2 id="传感器和执行器"><a href="#传感器和执行器" class="headerlink" title="传感器和执行器"></a>传感器和执行器</h2><ul><li>温度传感器</li><li>压力传感器</li><li>流传感器</li><li>液位和距离传感器</li><li>位置和位移传感器</li><li>力和扭矩传感器</li><li>加速和角速度传感器</li><li>湿度传感器</li><li>气体和化学传感器</li><li>光和辐射传感器</li><li>接近传感器</li><li>图像传感器</li><li>声学传感器</li><li>磁传感器</li><li><p>电气传感器</p></li><li><p>DC电机，AC电机<br>…</p></li></ul><h2 id="测试与调试"><a href="#测试与调试" class="headerlink" title="测试与调试"></a>测试与调试</h2><ul><li>调试技术</li><li>单元测试</li><li>集成测试</li><li>系统测试</li><li>可行性和确定性</li><li>自动测试</li></ul><h2 id="软件开发方法"><a href="#软件开发方法" class="headerlink" title="软件开发方法"></a>软件开发方法</h2><ul><li>敏捷开发</li><li>规则和回应</li><li>规划和预估</li><li>迭代开发</li><li>持续集成和质量保证</li></ul><h2 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h2><ul><li>需求管理</li><li>评估与计划</li><li>风险管理</li><li>质量保证和测试</li><li>基础设施和CI</li><li>团队领导和沟通</li></ul><h2 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h2><ul><li>密码学</li><li>安全启动和固件升级</li><li>身份认证和接入控制</li><li>网络安全</li></ul><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><ul><li>自适应控制</li><li>错误检测和分析</li><li>模型预测控制</li><li>系统优化</li><li>人机交互</li><li>组织知识</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 初见嵌入式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 嵌入式开发 </tag>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Subtype Polymorphism</title>
+      <link href="/2023/04/03/programing/Subtype-Polymorphism/"/>
+      <url>/2023/04/03/programing/Subtype-Polymorphism/</url>
+      
+        <content type="html"><![CDATA[<p>本节内容介绍了: 对象方法统一化， 子类多态化， 返回方法的方法</p><p>详细内容：<a href="https://joshhug.gitbooks.io/hug61b/content/chap4/chap43.html">https://joshhug.gitbooks.io/hug61b/content/chap4/chap43.html</a></p><h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><p>当我们用程序实现寻找数组中最大数时，可以通过以下算法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title function_">max</span><span class="params">(<span class="type">int</span>[] items)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">maxDex</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; items.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (items[i] &gt; items[maxDex]) &#123;</span><br><span class="line">            maxDex = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> items[maxDex];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>但在现实生活中，不只是数字可以比较大小，许多事物也可以比较大小，假如我们要比较狗的大小，那么我们就会发现问题：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (items[i] &gt; items[maxDex]) </span><br></pre></td></tr></table></figure></p><h3 id="对象之间的比较"><a href="#对象之间的比较" class="headerlink" title="对象之间的比较"></a>对象之间的比较</h3><p>狗作为对象有名字有大小，有各种属性，如果直接通过数组比较就会出现问题,因此我们通常会专门为狗设立一个比较方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Dog <span class="title function_">maxDog</span><span class="params">(Dog[] dogs)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (dogs == <span class="literal">null</span> || dogs.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">Dog</span> <span class="variable">maxDog</span> <span class="operator">=</span> dogs[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (Dog d : dogs) &#123;</span><br><span class="line">        <span class="keyword">if</span> (d.size &gt; maxDog.size) &#123;</span><br><span class="line">            maxDog = d;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxDog;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>但我们不止要对狗进行比较，还要对其他对象进行比较，那岂不是要为每个对象安排差不多的方法？因此，接口作为统一的标准就起到作用了</p><h3 id="使用接口统一比较"><a href="#使用接口统一比较" class="headerlink" title="使用接口统一比较"></a>使用接口统一比较</h3><p>我们可以定义一个比较借口专门为所有需要比较的类进行统一比较<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">OurComparable</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Object o)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>然后在子类实现比较功能<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">implements</span> <span class="title class_">OurComparable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Dog</span><span class="params">(String n, <span class="type">int</span> s)</span> &#123;</span><br><span class="line">        name = n;</span><br><span class="line">        size = s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">bark</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot; says: bark&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">        <span class="type">Dog</span> <span class="variable">uddaDog</span> <span class="operator">=</span> (Dog) o;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.size - uddaDog.size;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="返回方法的方法"><a href="#返回方法的方法" class="headerlink" title="返回方法的方法"></a>返回方法的方法</h3><p>Java默认不能像Python一样返回一个方法，但通过类或接口中介，我们能迂回的实现一个返回方法的方法</p><hr><p>总结：要在java实现高阶函数，需要使用接口或类作为中介，在返回参数过程中，需要使用回调方法，</p>]]></content>
       
       
       <categories>
@@ -31,25 +85,54 @@
     
     
     <entry>
-      <title>test draft</title>
-      <link href="/2023/03/27/test-draft/"/>
-      <url>/2023/03/27/test-draft/</url>
+      <title>使用tmux实现终端复用</title>
+      <link href="/2023/04/01/others/%E4%BD%BF%E7%94%A8tmux%E5%AE%9E%E7%8E%B0%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8/"/>
+      <url>/2023/04/01/others/%E4%BD%BF%E7%94%A8tmux%E5%AE%9E%E7%8E%B0%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8/</url>
       
-        <content type="html"><![CDATA[<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><div class="row">    <embed src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/pdf/小作文讲义.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
+        <content type="html"><![CDATA[<h2 id="tmux基本操作"><a href="#tmux基本操作" class="headerlink" title="tmux基本操作"></a>tmux基本操作</h2><p>tmux主要分为三个概念: Session ，Window， Pane</p><h2 id="tmux自定义配置"><a href="#tmux自定义配置" class="headerlink" title="tmux自定义配置"></a>tmux自定义配置</h2><p>tmux自定义配置可以通过配置.tmux.conf进行修改</p><h3 id="修改快捷键"><a href="#修改快捷键" class="headerlink" title="修改快捷键"></a>修改快捷键</h3><p>使用<code>bind</code>对快捷诶建进行绑定</p><p>默认情况下<c-b>就是prefix键，然而默认下的按键并不友好，我们可以修改为更友好的</p><h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><ol><li>安装tmux插件管理器</li></ol><h3 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h3><h4 id="Session管理器"><a href="#Session管理器" class="headerlink" title="Session管理器"></a>Session管理器</h4><p>以下插件都是用于保存历史Session和Session布局的<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set -g @plugin &#x27;tmux-plugins/tmux-resurrect&#x27;</span><br><span class="line">set -g @plugin &#x27;tmux-plugins/tmux-continuum&#x27;</span><br></pre></td></tr></table></figure><br>详情：<br>[continum]<a href="https://github.com/tmux-plugins/tmux-continuum">https://github.com/tmux-plugins/tmux-continuum</a><br>[resurrect]<a href="https://github.com/tmux-plugins/tmux-resurrect">https://github.com/tmux-plugins/tmux-resurrect</a></p>]]></content>
       
       
       <categories>
           
-          <category> 杂项 </category>
+          <category> 工具 </category>
           
-          <category> 测试 </category>
+          <category> 终端 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 测试 </tag>
+            <tag> 效率 </tag>
+            
+            <tag> tmux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>接口与继承</title>
+      <link href="/2023/03/31/programing/%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%BB%A7%E6%89%BF/"/>
+      <url>/2023/03/31/programing/%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%BB%A7%E6%89%BF/</url>
+      
+        <content type="html"><![CDATA[<h2 id="接口与继承"><a href="#接口与继承" class="headerlink" title="接口与继承"></a>接口与继承</h2><p>本章学习链接：<a href="https://joshhug.gitbooks.io/hug61b/content/chap4/chap41.html">https://joshhug.gitbooks.io/hug61b/content/chap4/chap41.html</a></p><p>本节内容部分节选自CS61B中比较重要的概念：<code>接口, 重写, 继承, 静态类型与动态类型, 重载与重写的关系</code></p><h3 id="静态类型与动态类型"><a href="#静态类型与动态类型" class="headerlink" title="静态类型与动态类型"></a>静态类型与动态类型</h3><p>静态类型：指变量声明时所指定的类型，这个类型是不能改的<br>动态类型： 在声明对象时给定的对象类型, 一般只有父类才有获取子类对象类型的能力</p><p>假设Animal是Cat的父类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>(); <span class="comment">//cat的动态类型和静态类型都为Cat</span></span><br><span class="line"><span class="type">Animal</span> <span class="variable">anim</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>(); <span class="comment">//Animal的静态类型是Animal,动态类型是Cat</span></span><br></pre></td></tr></table></figure><br>那么静态类型和动态类型有什么用呢，来看以下代码</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">peek</span><span class="params">(List list)</span> &#123;</span><br><span class="line">    System.out.println(list.getLast());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">peek</span><span class="params">(SLList list)</span> &#123;</span><br><span class="line">    System.out.println(list.getFirst());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">SLList</span> <span class="variable">SP</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SLList</span>();</span><br><span class="line"><span class="type">List</span> <span class="variable">LP</span> <span class="operator">=</span> SP;</span><br><span class="line">SP.addLast(<span class="string">&quot;elk&quot;</span>);</span><br><span class="line">SP.addLast(<span class="string">&quot;are&quot;</span>);</span><br><span class="line">SP.addLast(<span class="string">&quot;cool&quot;</span>);</span><br><span class="line">peek(SP); <span class="comment">//elk</span></span><br><span class="line">peek(LP); <span class="comment">//cool</span></span><br></pre></td></tr></table></figure><p>在上面代码中我们重载了peek方法，也就是说，LP并没有以SLList调用，依然使用List类型对方法进行调用,这告诉我们重载和重写是不一样的</p><h3 id="重载与重写"><a href="#重载与重写" class="headerlink" title="重载与重写"></a>重载与重写</h3><p>重载与重写有类似的地方，但两者之间存在区别</p><ul><li><p>如果父类动态类型为子类，会使用子类重写方法，但不会使用子类重载方法</p></li><li><p>子类能重载父类的方法</p></li><li><p>在Java中重写最好添加@override,告诉别人这是在父类基础上重写的方法</p></li></ul><p>值得注意的是，构造函数既不能重载父类方法，也不能重写父类方法，只能创建自己的构造方法。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过接口，我们能更灵活的构建对象，让我们的大脑能以直觉的方式处理代码//‘’;\;’’</p><p>接口告诉子类能做什么（how）,子类则实现接口能做什么(what)</p><p>在继承时，接口与子类的关系更接近<code>is a</code>，而不是<code>has a</code>，我们可以说猫是动物， 但不能说猫有爪子</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CS61B </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 面向对象 </tag>
             
         </tags>
       
@@ -78,10 +161,10 @@
     
     <entry>
       <title>如何建立博客</title>
-      <link href="/2023/03/26/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
-      <url>/2023/03/26/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/</url>
+      <link href="/2023/03/26/others/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2023/03/26/others/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/</url>
       
-        <content type="html"><![CDATA[<h2 id="如何建立博客"><a href="#如何建立博客" class="headerlink" title="如何建立博客"></a>如何建立博客</h2><h3 id="博客建立的几个前置条件"><a href="#博客建立的几个前置条件" class="headerlink" title="博客建立的几个前置条件"></a>博客建立的几个前置条件</h3><ol><li><p>blog的网站框架（可以自己搭建或使用网上现成的框架）</p></li><li><p>部署平台<br>平台可选择以下部分</p><ul><li>github（无需购买域名)</li><li>云服务 </li><li>本地搭建服务器 </li></ul></li><li><p>域名(可选)</p></li></ol><ol><li><p>网站托管(可选)</p><ul><li>github page </li><li>vercel(比github page快不少)</li></ul></li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="如何建立博客"><a href="#如何建立博客" class="headerlink" title="如何建立博客"></a>如何建立博客</h2><ol><li><p>blog的网站框架（可以自己搭建或使用网上现成的框架）</p></li><li><p>部署平台<br>平台可选择以下部分</p><ul><li>github (无需购买域名)</li><li>云服务 </li><li>本地搭建服务器 </li></ul></li><li><p>域名(可选)</p></li><li><p>网站托管(可选)</p><ul><li>github page </li><li>vercel(比github page快不少)</li></ul></li></ol>]]></content>
       
       
       <categories>
@@ -90,6 +173,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 技能 </tag>
+            
+        </tags>
       
     </entry>
     
